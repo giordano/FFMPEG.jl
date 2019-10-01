@@ -13,10 +13,10 @@ products = [
     LibraryProduct(prefix, ["libavutil","avutil"], :libavutil),
     LibraryProduct(prefix, ["libswscale","swscale"], :libswscale),
     LibraryProduct(prefix, ["libavfilter","avfilter"], :libavfilter),
-    LibraryProduct(prefix, ["libavdevice","avdevice"], :libavdevice),
     LibraryProduct(prefix, ["libpostproc", "postproc"], :libpostproc),
     LibraryProduct(prefix, ["libswresample", "swresample"], :libswresample),
     LibraryProduct(prefix, ["libavresample", "avresample"], :libavresample),
+    LibraryProduct(prefix, ["libavdevice","avdevice"], :libavdevice),
 ]
 
 # Download binaries from hosted location
