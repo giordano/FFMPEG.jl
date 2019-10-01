@@ -2,6 +2,7 @@ using BinaryProvider # requires BinaryProvider 0.3.0 or later
 
 using Libdl
 
+@show readdir("C:\\Windows\\System32")
 @show Libdl.dllist()
 
 # Parse some basic command-line arguments
