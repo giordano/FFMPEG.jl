@@ -3,6 +3,7 @@ using BinaryProvider # requires BinaryProvider 0.3.0 or later
 using Libdl
 
 @show readdir("C:\\Windows\\System32")
+Libdl.dlopen("C:\\Windows\\System32\\secur32.dll")
 @show Libdl.dllist()
 
 # Parse some basic command-line arguments
