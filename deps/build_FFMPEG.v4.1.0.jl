@@ -1,5 +1,9 @@
 using BinaryProvider # requires BinaryProvider 0.3.0 or later
 
+using Libdl
+
+@show Libdl.dllist()
+
 # Parse some basic command-line arguments
 const verbose = true
 const prefix = Prefix(get([a for a in ARGS if a != "--verbose"], 1, joinpath(@__DIR__, "usr")))
