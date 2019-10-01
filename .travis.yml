@@ -1,28 +1,7 @@
 language: julia
 
-os:
-  - osx
-  - linux
-
-julia:
-  - 1.0
-  - 1.2
-  - nightly
-
 jobs:
   include:
-    - os: linux
-      arch: x86
-      julia: 1.0
-      name: "Julia 1 (Linux 32bit)"
-    - os: linux
-      arch: x86
-      julia: 1.2
-      name: "Julia 1.2 (Linux 32bit)"
-    - os: linux
-      arch: x86
-      julia: nightly
-      name: "Julia nightly (Linux 32bit)"
     # additional Windows 32/64-bit jobs
     - os: windows
       arch: x64
@@ -45,12 +24,12 @@ jobs:
       arch: x86
       julia: nightly
       name: "Julia nightly (Windows 32bit)"
-    # documentation build stage
-    - stage: "Documentation"
-      os: linux
-      julia: 1.3
-      script:
-        - julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd()));
-                                               Pkg.instantiate()'
-        - julia --project=docs/ docs/make.jl
-      after_success: skip
+    # # documentation build stage
+    # - stage: "Documentation"
+    #   os: linux
+    #   julia: 1.3
+    #   script:
+    #     - julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd()));
+    #                                            Pkg.instantiate()'
+    #     - julia --project=docs/ docs/make.jl
+    #   after_success: skip
