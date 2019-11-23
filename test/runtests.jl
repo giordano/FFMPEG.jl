@@ -6,6 +6,8 @@ using Libdl
 
 @ffmpeg_env run(`ldd $ffmpeg`)
 
+@show @ffmpeg_env(ENV["LD_LIBRARY_PATH"])
+
 text_execute(f) = try
     f()
     return true
