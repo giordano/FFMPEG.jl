@@ -3,14 +3,14 @@ module FFMPEG
 const libpath = joinpath(@__DIR__, "..", "deps", "usr", "lib")
 
 if Sys.iswindows()
-    const execenv = ("PATH" => string(libpath, ";", Sys.BINDIR, ";",
-                                      joinpath(Sys.BINDIR, Base.LIBDIR)))
+    const execenv = ("PATH" => string(joinpath(Sys.BINDIR, Base.LIBDIR), ";",
+                                      libpath, ";", Sys.BINDIR))
 elseif Sys.isapple()
-    const execenv = ("DYLD_LIBRARY_PATH" => string(libpath, ":",
-                                                   joinpath(Sys.BINDIR, Base.LIBDIR)))
+    const execenv = ("DYLD_LIBRARY_PATH" => string(joinpath(Sys.BINDIR, Base.LIBDIR), ":",
+                                                   libpath))
 else
-    const execenv = ("LD_LIBRARY_PATH" => string(libpath, ":",
-                                                 joinpath(Sys.BINDIR, Base.LIBDIR)))
+    const execenv = ("LD_LIBRARY_PATH" => string(joinpath(Sys.BINDIR, Base.LIBDIR), ":",
+                                                 libpath))
 end
 
 
