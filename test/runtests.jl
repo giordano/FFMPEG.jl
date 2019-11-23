@@ -4,6 +4,8 @@ using Libdl
 
 @show dllist()
 
+@ffmpeg_env run(`ldd $ffmpeg`)
+
 text_execute(f) = try
     f()
     return true
