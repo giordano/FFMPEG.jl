@@ -2,14 +2,14 @@
 language: julia
 os:
   - linux
-  - osx
+#  - osx
   # We cannot test FFMPEG on Windows because of
   # https://travis-ci.community/t/any-chance-of-providing-an-environment-with-desktop-experience/1024
   # - windows
 arch:
-  - x64
+#  - x64
   - x86
-  - arm64
+#  - arm64
 julia:
   - 1.0
   - 1.2
