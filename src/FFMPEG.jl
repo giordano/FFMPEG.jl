@@ -4,13 +4,16 @@ const libpath = joinpath(@__DIR__, "..", "deps", "usr", "lib")
 
 if Sys.iswindows()
     const execenv = ("PATH" => string(joinpath(Sys.BINDIR, Base.LIBDIR), ";",
-                                      libpath, ";", Sys.BINDIR))
+                                      libpath, ";", Sys.BINDIR),
+                     "LD_DEBUG" => "all")
 elseif Sys.isapple()
     const execenv = ("DYLD_LIBRARY_PATH" => string(joinpath(Sys.BINDIR, Base.LIBDIR), ":",
-                                                   libpath))
+                                                   libpath),
+                     "LD_DEBUG" => "all")
 else
     const execenv = ("LD_LIBRARY_PATH" => string(joinpath(Sys.BINDIR, Base.LIBDIR), ":",
-                                                 libpath))
+                                                 libpath),
+                     "LD_DEBUG" => "all")
 end
 
 
@@ -71,7 +74,7 @@ built with clang version 6.0.1 (tags/RELEASE_601/final)
 """
 macro ffmpeg_env(arg)
     return esc(quote
-        withenv(FFMPEG.execenv) do
+        withenv(FFMPEG.execenv...) do
             $(arg)
         end
     end)
@@ -123,11 +126,11 @@ built with clang version 6.0.1 (tags/RELEASE_601/final)
 """
 function exe(arg::Cmd; command = ffmpeg, collect = false)
     if collect
-        withenv(execenv) do
+        withenv(execenv...) do
             collectexecoutput(`$command $arg`)
         end
     else
-        withenv(execenv) do
+        withenv(execenv...) do
             Base.run(`$command $arg`)
         end
     end
