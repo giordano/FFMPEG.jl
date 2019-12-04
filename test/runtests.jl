@@ -1,5 +1,8 @@
 using FFMPEG
+using FFMPEG_jll
 using Test
+
+@show FFMPEG_jll.LIBPATH_list
 
 text_execute(f) = try
     f()
