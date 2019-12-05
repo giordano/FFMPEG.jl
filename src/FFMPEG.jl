@@ -126,10 +126,12 @@ built with clang version 6.0.1 (tags/RELEASE_601/final)
 function exe(arg::Cmd; command = ffmpeg, collect = false)
     if collect
         withenv(execenv) do
+            @show ENV["PATH"]
             collectexecoutput(`$command $arg`)
         end
     else
         withenv(execenv) do
+            @show ENV["PATH"]
             Base.run(`$command $arg`)
         end
     end
