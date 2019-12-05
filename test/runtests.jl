@@ -2,7 +2,30 @@ using FFMPEG
 using FFMPEG_jll
 using Test
 
+@show FFMPEG_jll.PATH_list
 @show FFMPEG_jll.LIBPATH_list
+
+# function myffmpeg(f::Function; adjust_PATH::Bool = true, adjust_LIBPATH::Bool = true)
+#     env_mapping = Dict{String,String}()
+#     if adjust_PATH
+#         if !isempty(get(ENV, "PATH", ""))
+#             env_mapping["PATH"] = string(FFMPEG_jll.PATH, ';', ENV["PATH"])
+#         else
+#             env_mapping["PATH"] = FFMPEG_jll.PATH
+#         end
+#     end
+#     if adjust_LIBPATH
+#         if !isempty(get(ENV, FFMPEG_jll.LIBPATH_env, ""))
+#             env_mapping[FFMPEG_jll.LIBPATH_env] = string(FFMPEG_jll.LIBPATH, ';', ENV[FFMPEG_jll.LIBPATH_env])
+#         else
+#             env_mapping[FFMPEG_jll.LIBPATH_env] = FFMPEG_jll.LIBPATH
+#         end
+#     end
+#     withenv(env_mapping...) do
+#         f(FFMPEG_jll.ffmpeg_path)
+#     end
+# end
+
 
 text_execute(f) = try
     f()
