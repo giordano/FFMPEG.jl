@@ -2,9 +2,13 @@
 using FFMPEG_jll
 using Test, Libdl
 
+println()
 @show FFMPEG_jll.PATH_list
+println()
 @show FFMPEG_jll.LIBPATH_list
+println()
 @show dllist()
+println()
 
 # function myffmpeg(f::Function; adjust_PATH::Bool = true, adjust_LIBPATH::Bool = true)
 #     env_mapping = Dict{String,String}()
@@ -28,7 +32,10 @@ using Test, Libdl
 # end
 
 ffmpeg() do ffmpeg_path
+    @show FFMPEG_jll.LIBPATH_env
+    println()
     @show ENV[FFMPEG_jll.LIBPATH_env]
+    println()
     run(`$ffmpeg_path -version`)
 end
 
