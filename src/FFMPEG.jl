@@ -8,7 +8,7 @@ const libdir1 = joinpath(Sys.BINDIR, Base.LIBDIR, "julia")
 const libdir2 = joinpath(Sys.BINDIR, Base.LIBDIR)
 
 if Sys.iswindows()
-    const execenv = ("PATH" => string(libdir1, ";", libdir2, ";", libpath, ";", Sys.BINDIR))
+    const execenv = ("PATH" => string(libdir1, ";", libdir2, ";", Sys.BINDIR))
 elseif Sys.isapple()
     const execenv = ("DYLD_LIBRARY_PATH" => string(libdir1, ":", libdir2, ":", libpath))
 else
