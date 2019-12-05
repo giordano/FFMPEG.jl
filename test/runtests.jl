@@ -1,5 +1,11 @@
 using FFMPEG
 using Test
+using Libdl
+
+@show dllist()
+println()
+@show readdir(joinpath(@__DIR__, "..", "deps", "usr", "bin"))
+println()
 
 text_execute(f) = try
     f()
