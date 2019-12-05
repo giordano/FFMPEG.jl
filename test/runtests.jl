@@ -5,6 +5,8 @@ using Test, Libdl
 println()
 @show FFMPEG_jll.PATH_list
 println()
+@show readdir("C:\\Users\\appveyor\\.julia\\artifacts\\f51f2e600c1291588ee1945df839dec01e078e87\\bin")
+println()
 @show FFMPEG_jll.LIBPATH_list
 println()
 @show dllist()
