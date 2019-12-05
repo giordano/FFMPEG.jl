@@ -49,7 +49,7 @@ end
 # end
 
 ffmpeg() do ffmpeg_path
-    ENV[FFMPEG_jll.LIBPATH_env] = join(FFMPEG_jll.LIBPATH_list, ';')
+    ENV[FFMPEG_jll.LIBPATH_env] = Sys.BINDIR * ";" * ENV[FFMPEG_jll.LIBPATH_env]
     @show FFMPEG_jll.LIBPATH_env
     println()
     @show ENV[FFMPEG_jll.LIBPATH_env]
