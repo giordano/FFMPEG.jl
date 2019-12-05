@@ -12,6 +12,14 @@ println()
 @show dllist()
 println()
 
+
+for dir in FFMPEG_jll.LIBPATH_list[3:end]
+    @show dir
+    println()
+    @show readdir(dir)
+    println()
+end
+
 # function myffmpeg(f::Function; adjust_PATH::Bool = true, adjust_LIBPATH::Bool = true)
 #     env_mapping = Dict{String,String}()
 #     if adjust_PATH
