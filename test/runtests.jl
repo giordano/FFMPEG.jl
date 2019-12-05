@@ -1,9 +1,10 @@
 # using FFMPEG
 using FFMPEG_jll
-using Test
+using Test, Libdl
 
 @show FFMPEG_jll.PATH_list
 @show FFMPEG_jll.LIBPATH_list
+@show dllist()
 
 # function myffmpeg(f::Function; adjust_PATH::Bool = true, adjust_LIBPATH::Bool = true)
 #     env_mapping = Dict{String,String}()
