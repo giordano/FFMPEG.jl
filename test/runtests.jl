@@ -28,6 +28,7 @@ using Test, Libdl
 # end
 
 ffmpeg() do ffmpeg_path
+    @show ENV[FFMPEG_jll.LIBPATH_env]
     run(`$ffmpeg_path -version`)
 end
 
