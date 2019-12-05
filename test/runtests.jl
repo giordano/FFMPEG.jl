@@ -1,5 +1,5 @@
 # using FFMPEG
-using FFMPEG_jll, LibVPX_jll
+using FFMPEG_jll
 using Test, Libdl
 
 println()
@@ -42,7 +42,6 @@ end
 # end
 
 ffmpeg() do ffmpeg_path
-    ENV[FFMPEG_jll.LIBPATH_env] = dirname(LibVPX_jll.libvpx_path) * ";" * ENV[FFMPEG_jll.LIBPATH_env]
     @show FFMPEG_jll.LIBPATH_env
     println()
     @show ENV[FFMPEG_jll.LIBPATH_env]
