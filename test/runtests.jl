@@ -11,7 +11,8 @@ println()
 println()
 @show dllist()
 println()
-
+@show readdir("C:\\Users\\appveyor\\.julia\\artifacts")
+println()
 
 for dir in FFMPEG_jll.LIBPATH_list[3:end]
     @show dir
