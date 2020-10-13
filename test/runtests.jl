@@ -1,7 +1,12 @@
+using Libdl
+
+@show "Showing dllist() at the beginning"
+println.(dllist())
+
 using FFMPEG
 using Test
-using FFMPEG_jll.Libdl
 
+@show "Showing dllist() after loading FFMPEG"
 println.(dllist())
 
 text_execute(f) = try
