@@ -1,5 +1,8 @@
 using FFMPEG
 using Test
+using FFMPEG_jll.Libdl
+
+println.(dllist())
 
 text_execute(f) = try
     f()
